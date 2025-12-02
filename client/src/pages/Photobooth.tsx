@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 import type { Template } from '../types';
 
 const Photobooth: React.FC = () => {
@@ -139,7 +140,10 @@ const Photobooth: React.FC = () => {
 
     if (!selectedTemplate) {
         return (
-            <div className="min-h-screen bg-gray-900 p-8 text-white">
+            <div className="min-h-screen bg-gray-900 p-8 text-white relative">
+                <Link to="/admin" className="absolute top-4 right-4 text-gray-500 hover:text-white text-sm">
+                    Admin
+                </Link>
                 <h1 className="text-4xl font-bold mb-8 text-center">Select a Frame</h1>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     {templates.map((template) => (
